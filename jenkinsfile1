@@ -9,5 +9,10 @@ pipeline {
             sh "mvn clean install"
         }
       }
+       stage ("DEPLOY") {
+        steps {
+            sh "cp /jenkins-workspace/workspace/java-deploy-pipeline/target/hello-world-war-1.0.0.war /opt/apache-tomcat-10.0.27/webapps"
+        }
+      }
     }
- }
+  }
